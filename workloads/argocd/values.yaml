@@ -1,0 +1,24 @@
+argo-cd:
+  enabled: true
+  configs:
+    secret:
+      # $ARGO_PWD=password
+      # htpasswd -nbBC 10 "" $ARGO_PWD | tr -d ':\n' | sed 's/$2y/$2a/'
+      argocdServerAdminPassword: "$2a$10$r67roNQZ/H3DCHDpKAevF.LZo4drgcfcgibinEm0mEBg51cAPojaC"
+
+  controller:
+    clusterAdminAccess:
+      enabled: true
+
+  server:
+    extraArgs:
+      - --insecure
+    config:
+      repositories: |
+        - url: https://github.com/mjpitz/auto-gitops-demo.git
+          usernameSecret:
+            name: argocd-secret
+            key: username
+          passwordSecret:
+            name: argocd-secret
+            key: password

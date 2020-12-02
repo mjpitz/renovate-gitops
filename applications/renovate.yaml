@@ -1,0 +1,29 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  namespace: argocd
+  name: renovate
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/mjpitz/auto-gitops-demo.git
+    targetRevision: HEAD
+    path: workloads/renovate/
+    helm:
+      releaseName: renovate
+      valueFiles:
+        - values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: renovate
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    validate: true
