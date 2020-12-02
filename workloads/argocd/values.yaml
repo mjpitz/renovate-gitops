@@ -17,8 +17,8 @@ argo-cd:
       repositories: |
         - url: https://github.com/mjpitz/auto-gitops-demo.git
           usernameSecret:
-            name: argocd-secret
+            name: argocd-secrets
             key: username
           passwordSecret:
-            name: argocd-secret
+            name: argocd-secrets
             key: password
