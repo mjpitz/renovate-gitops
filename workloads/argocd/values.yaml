@@ -4,7 +4,7 @@ argo-cd:
     secret:
       # $ARGO_PWD=password
       # htpasswd -nbBC 10 "" $ARGO_PWD | tr -d ':\n' | sed 's/$2y/$2a/'
-      argocdServerAdminPassword: "$2a$10$r67roNQZ/H3DCHDpKAevF.LZo4drgcfcgibinEm0mEBg51cAPojaC"
+      argocdServerAdminPassword: "$2a$10$qsjuZNhoJR7UHv/v/CryaOe0wewDzzH.wP.j1YAVLqgBXWZImdQ/u"
 
   controller:
     clusterAdminAccess:
