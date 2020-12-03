@@ -18,7 +18,7 @@ Here's how you can identify remaining references.
 With a little `sed`, you should be able to programmatically replace.
 
 ```
-git grep "mjpitz/auto-gitops-demo" | grep -v README.md
+git grep "mjpitz/renovate-gitops" | grep -v README.md
 ```
 
 Once all references have been replaced, be sure to commit and push your changes.

@@ -11,7 +11,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/mjpitz/auto-gitops-demo.git
+    repoURL: https://github.com/mjpitz/renovate-gitops.git
     targetRevision: HEAD
     path: workloads/renovate/
     helm:

@@ -10,7 +10,7 @@ renovate:
       {
         "platform": "github",
         "repositories": [
-          "mjpitz/auto-gitops-demo"
+          "mjpitz/renovate-gitops"
         ]
       }
 
