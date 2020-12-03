@@ -4,6 +4,7 @@ kind: Application
 metadata:
   namespace: argocd
   name: cert-manager
+  # cascade deletes
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

@@ -4,6 +4,7 @@ kind: Application
 metadata:
   namespace: argocd
   name: argocd
+  # cascade deletes
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
