@@ -18,7 +18,7 @@ Here's how you can identify remaining references.
 With a little `sed`, you should be able to programmatically replace.
 
 ```
-git grep -l "mjpitz/auto-gitops-demo" | grep -v README.md
+git grep "mjpitz/auto-gitops-demo" | grep -v README.md
 ```
 
 Once all references have been replaced, be sure to commit and push your changes.
@@ -38,19 +38,11 @@ kind create cluster
 ## Step 3. Setup ArgoCD
 
 ```bash
-$ kubectl apply -f namespaces/
+kubectl apply -f namespaces/
 
-$ helm dependency update workloads/argocd/
-$ helm upgrade -i argocd ./workloads/argocd/ -n argocd
-$ kubectl rollout status -n argocd deployment/argocd-server -w
-
-$ kubectl get pods -n argocd
-NAME                                             READY   STATUS    RESTARTS   AGE
-argocd-application-controller-7f696d4f8d-jrcfn   1/1     Running   0          3m19s
-argocd-dex-server-58d9c9cc89-xgbrw               1/1     Running   0          3m19s
-argocd-redis-6f8cffc6b4-c7tjc                    1/1     Running   0          3m19s
-argocd-repo-server-59c887d778-dmj5w              1/1     Running   0          3m19s
-argocd-server-64c576c645-x7vpw                   1/1     Running   0          3m19s
+helm dependency update workloads/argocd/
+helm upgrade -i argocd ./workloads/argocd/ -n argocd
+kubectl rollout status -n argocd deployment/argocd-server -w
 ```
 
 ## Step 4. Do the thing...
