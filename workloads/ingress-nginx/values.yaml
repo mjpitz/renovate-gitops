@@ -1,0 +1,11 @@
+ingress-nginx:
+  controller:
+    replicaCount: 2
+    ingressClass: nginx
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+  defaultBackend:
+    enabled: true
+    replicaCount: 1
