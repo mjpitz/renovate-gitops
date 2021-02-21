@@ -1,0 +1,27 @@
+datadog:
+  datadog:
+    apiKeyExistingSecret: datadog-secrets
+    appKeyExistingSecret: datadog-secrets
+    clusterName: ""
+    kubelet:
+      tlsVerify: false
+    criSocketPath: /var/run/containerd/containerd.sock
+  clusterAgent:
+    tokenExistingSecret: datadog-secrets
+    priorityClassName: system-cluster-critical
+    resources:
+      requests:
+        cpu: 200m
+        memory: 256Mi
+  agents:
+    priorityClassName: system-node-critical
+    containers:
+      agent:
+        resources:
+          requests:
+            cpu: 200m
+            memory: 256Mi
+    tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
