@@ -6,5 +6,5 @@ appVersion: 0.0.0 # unused
 dependencies:
   - name: argo-cd
     repository: https://argoproj.github.io/argo-helm
-    version: 2.9.5
+    version: 2.10.0
     condition: argo-cd.enabled
